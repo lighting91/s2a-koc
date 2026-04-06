@@ -1,0 +1,610 @@
+:root{
+  --bg:#f5f7fb;
+  --panel:#ffffff;
+  --panel-2:#f8fafc;
+  --line:#d9e2ef;
+  --text:#0f172a;
+  --muted:#667085;
+  --primary:#3b82f6;
+  --primary-2:#2563eb;
+  --success:#16a34a;
+  --danger:#dc2626;
+  --warning:#d97706;
+  --shadow:0 12px 30px rgba(15,23,42,.08);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+  color:var(--text);
+  background:
+    radial-gradient(1000px 500px at 10% 0%, rgba(59,130,246,.11), transparent 60%),
+    radial-gradient(900px 400px at 100% 10%, rgba(22,163,74,.08), transparent 60%),
+    var(--bg);
+}
+.app{max-width:1600px;margin:0 auto;padding:18px 18px 36px;}
+.topbar{
+  position:relative;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+  background:linear-gradient(180deg, rgba(255,255,255,.96), rgba(255,255,255,.88));
+  border:1px solid rgba(217,226,239,.85);
+  box-shadow:var(--shadow);
+  border-radius:24px;
+  padding:16px 18px;
+  overflow:hidden;
+}
+.topbar::after{
+  content:""; position:absolute; inset:0;
+  background:linear-gradient(135deg, rgba(59,130,246,.06), transparent 35%, rgba(22,163,74,.05));
+  pointer-events:none;
+}
+.brand{display:flex;align-items:center;gap:14px;position:relative;z-index:1}
+.logo{
+  width:54px;height:54px;border-radius:16px;
+  display:grid;place-items:center;
+  background:linear-gradient(135deg,#0ea5e9,#2563eb 55%, #22c55e);
+  color:#fff;font-weight:900;font-size:20px;
+  box-shadow:0 10px 24px rgba(37,99,235,.25);
+  position:relative;overflow:hidden;
+}
+.logo svg{width:34px;height:34px;display:block}
+.brand h1{margin:0;font-size:18px;line-height:1.15}
+.brand .sub{margin-top:2px;color:var(--muted);font-size:12px}
+.meta{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:flex-end;position:relative;z-index:1}
+.chip{
+  border:1px solid var(--line);background:rgba(255,255,255,.92);
+  padding:9px 12px;border-radius:999px;color:#334155;font-size:12px;
+  display:flex;align-items:center;gap:8px;
+}
+.chip strong{font-size:12px}
+.tabs{
+  margin-top:14px;
+  display:flex;gap:10px;flex-wrap:wrap;
+}
+.tab-btn{
+  appearance:none;border:1px solid transparent;cursor:pointer;
+  padding:12px 16px;border-radius:14px;background:rgba(255,255,255,.8);
+  box-shadow:0 6px 18px rgba(15,23,42,.05);
+  color:#334155;font-weight:700;
+  transition:.18s ease;
+}
+.tab-btn:hover{transform:translateY(-1px);border-color:rgba(59,130,246,.25)}
+.tab-btn.active{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff}
+.content{margin-top:14px}
+.tab{display:none}
+.tab.active{display:block}
+.grid-2{display:grid;grid-template-columns:1.15fr .85fr;gap:14px}
+.grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{
+  background:rgba(255,255,255,.92);backdrop-filter:blur(10px);
+  border:1px solid rgba(217,226,239,.9);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+}
+.card .card-hd{
+  padding:14px 16px;border-bottom:1px solid rgba(217,226,239,.75);
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+}
+.card .card-hd h2,.card .card-hd h3{margin:0;font-size:15px}
+.card .card-bd{padding:16px}
+.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+button, select, input, textarea{font:inherit}
+.btn{
+  border:1px solid transparent;border-radius:12px;padding:10px 14px;cursor:pointer;
+  font-weight:700;transition:.15s ease;display:inline-flex;align-items:center;gap:8px;
+}
+.btn:hover{transform:translateY(-1px)}
+.btn.primary{background:linear-gradient(135deg,var(--primary),var(--primary-2));color:#fff}
+.btn.soft{background:#eef4ff;color:#1d4ed8;border-color:#dbe7ff}
+.btn.gray{background:#f8fafc;color:#334155;border-color:var(--line)}
+.btn.danger{background:#fff1f2;color:#be123c;border-color:#fecdd3}
+.btn.success{background:#ecfdf5;color:#047857;border-color:#bbf7d0}
+.controls{
+  display:grid;grid-template-columns:140px 150px 150px 1fr 170px 170px 1fr auto;
+  gap:10px;align-items:end;margin-bottom:12px;
+}
+.controls-settings{
+  grid-template-columns:repeat(5,minmax(0,1fr));
+}
+.field{display:flex;flex-direction:column;gap:6px}
+.field label{font-size:12px;color:var(--muted);font-weight:700}
+.field input,.field select,.field textarea{
+  width:100%;background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:11px 12px;outline:none;transition:.15s ease;
+}
+.field textarea{resize:vertical;min-height:42px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:#93c5fd;box-shadow:0 0 0 4px rgba(59,130,246,.08)}
+.hint{font-size:12px;color:var(--muted);line-height:1.45}
+
+.table-wrap{overflow:auto;border-radius:16px;border:1px solid var(--line)}
+table{width:100%;border-collapse:separate;border-spacing:0;background:#fff}
+thead th{
+  position:sticky;top:0;z-index:1;background:#f8fafc;color:#334155;
+  text-align:left;font-size:12px;padding:12px 10px;border-bottom:1px solid var(--line);
+  white-space:nowrap;
+}
+tbody td{padding:10px;border-bottom:1px solid #eef2f7;vertical-align:top;font-size:13px}
+tbody tr:hover{background:#fbfdff}
+.num{text-align:right;font-variant-numeric:tabular-nums}
+.muted{color:var(--muted)}
+.empty{padding:20px;text-align:center;color:var(--muted)}
+
+.kpis{display:grid;grid-template-columns:repeat(5,1fr);gap:14px}
+.kpi{
+  background:linear-gradient(180deg, rgba(255,255,255,.95), rgba(248,250,252,.95));
+  border:1px solid rgba(217,226,239,.9);border-radius:20px;box-shadow:var(--shadow);
+  padding:16px 16px 14px;
+}
+.kpi .label{font-size:12px;color:var(--muted);font-weight:700}
+.kpi .value{margin-top:8px;font-size:24px;font-weight:900;letter-spacing:-.02em}
+.kpi .small{margin-top:6px;font-size:12px;color:var(--muted)}
+
+.charts{display:grid;grid-template-columns:1.2fr .8fr;gap:14px;margin-top:14px}
+.chart-box{padding:14px}
+.chart-title{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px}
+.chart-title h3{margin:0;font-size:14px}
+canvas{width:100%;height:320px;display:block;background:#fff;border-radius:16px;border:1px solid var(--line)}
+.chart-sm canvas{height:320px}
+
+.s2a-wrap{padding:18px;background:#fff;border:1px solid var(--line);border-radius:18px;box-shadow:var(--shadow)}
+.sheet{
+  position:relative;
+  background:#fff;
+  color:#111827;
+  overflow:hidden;
+  min-height:1120px;
+}
+.sheet::before{
+  content:"Lê Viết Hưng 1991";
+  position:absolute;inset:0;display:grid;place-items:center;
+  font-size:72px;font-weight:900;letter-spacing:.02em;
+  color:rgba(15,23,42,.045);
+  transform:rotate(-28deg);
+  pointer-events:none;
+  z-index:0;
+  white-space:nowrap;
+}
+.sheet-inner{position:relative;z-index:1;padding:18px 18px 22px}
+.sheet-head{display:grid;grid-template-columns:1fr auto;gap:18px;align-items:start}
+.sheet-left .line{font-size:13px;line-height:1.45}
+.sheet-left .name{font-weight:800;font-size:14px;text-transform:uppercase}
+.sheet-right{min-width:260px;text-align:center;font-weight:800}
+.sheet-right .ms{font-size:16px;line-height:1.25}
+.sheet-right .note{font-size:11px;font-weight:600;color:#334155;margin-top:2px}
+.sheet-title{margin:18px 0 4px;text-align:center;font-weight:900;font-size:20px;letter-spacing:.01em}
+.sheet-subline{margin:0;text-align:center;font-size:13px;color:#374151;line-height:1.5}
+.sheet-meta{
+  display:block;
+  margin:14px 0 14px;
+  font-size:13px;
+}
+
+.sheet-meta div{
+  width:100%;
+  text-align:right;
+  white-space:nowrap;
+}
+.industry-block{margin-top:14px;border:1px solid #e6edf7;border-radius:14px;overflow:hidden}
+.industry-hd{background:#f8fafc;padding:10px 12px;font-weight:800;display:flex;justify-content:space-between;gap:10px;border-bottom:1px solid #e6edf7}
+.industry-hd .tag{font-size:12px;color:#475569;font-weight:700}
+.s2a-table{width:100%;border-collapse:collapse}
+.s2a-table th,.s2a-table td{border-bottom:1px solid #eef2f7;padding:8px 10px;font-size:12.5px;vertical-align:top}
+.s2a-table th{background:#fff;color:#334155;font-weight:800}
+.voucher{line-height:1.45}
+.voucher .code{font-weight:800}
+.voucher .date{color:#475569}
+.desc-cell .industry-label{font-size:12px;font-weight:800;color:#1d4ed8;margin-bottom:4px}
+.desc-cell .desc-text{font-size:12.5px;line-height:1.45}
+.foot-totals{margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.foot-totals .total-card{
+  border:1px solid #e6edf7;border-radius:14px;padding:12px 14px;background:#fbfdff;
+  display:flex;justify-content:space-between;gap:12px;font-size:13px;font-weight:800;
+}
+.sign-block{margin-top:34px;display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start}
+.sign-left{font-size:12px;color:#475569;line-height:1.5}
+.sign-right{text-align:center;font-size:12px;line-height:1.65}
+.sign-space{height:70px}
+.footer-actions{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-top:12px}
+.note-box{padding:12px 14px;border-radius:14px;background:#f8fafc;border:1px dashed #cbd5e1;color:#475569;font-size:12px;line-height:1.5}
+.inline-actions{display:flex;gap:8px;flex-wrap:wrap}
+.mini{padding:7px 10px;border-radius:10px;font-size:12px}
+.badge{display:inline-flex;align-items:center;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:800}
+.badge.thu{background:#ecfdf5;color:#047857}
+.badge.chi{background:#fff7ed;color:#c2410c}
+.hide-print{display:block}
+.print-only{display:none}
+
+@media (max-width: 1280px){
+  .grid-2,.charts{grid-template-columns:1fr}
+  .kpis{grid-template-columns:repeat(2,1fr)}
+  .controls{grid-template-columns:repeat(2,minmax(0,1fr));}
+  .controls-settings{grid-template-columns:repeat(2,minmax(0,1fr));}
+}
+@media (max-width: 760px){
+  .app{padding:12px}
+  .topbar{border-radius:18px;padding:14px}
+  .kpis,.grid-3{grid-template-columns:1fr}
+  .controls,.controls-settings{grid-template-columns:1fr}
+  .sheet-head{grid-template-columns:1fr}
+  .sheet-meta{flex-direction:column;align-items:flex-start}
+  .sign-block{grid-template-columns:1fr}
+}
+@media print{
+  body{background:#fff}
+  .hide-print,.topbar,.tabs,.toolbar,.footer-actions,.card .card-hd .right-tools,.print-hide{display:none !important}
+  .app{max-width:none;padding:0}
+  .tab.active{display:block}
+  .card,.s2a-wrap{box-shadow:none;border:none;background:#fff}
+  .sheet{min-height:auto}
+  .sheet::before{color:rgba(0,0,0,.04)}
+  @page{size:A4 portrait;margin:10mm}
+.foot-totals{
+  display:none !important;
+}
+
+
+@media print{
+  .foot-totals{display:none !important;}
+  .sign-block{display:flex !important;justify-content:flex-end !important;}
+  .sign-right{width:320px;text-align:center;}
+  .sheet-meta{display:block !important;}
+  .sheet-meta div{width:100% !important;text-align:right !important;}
+}
+@media print {
+
+  .sheet-head{
+    display:grid !important;
+    grid-template-columns: 1fr 320px !important;
+    align-items:start !important;
+  }
+
+  .sheet-right{
+    width:320px !important;
+    text-align:center !important;
+  }
+
+  .sheet-right .ms{
+    white-space:nowrap;
+  }
+
+}
+@media print {
+
+  body{
+    background:#fff !important;
+  }
+
+  .topbar,
+  .tabs,
+  .card-hd,
+  .footer-actions,
+  .note-box,
+  .btn,
+  .hide-print{
+    display:none !important;
+  }
+
+  .card,
+  .s2a-wrap{
+    border:none !important;
+    box-shadow:none !important;
+    padding:0 !important;
+  }
+
+  .sheet{
+    margin:0 !important;
+  }
+
+  .app{
+    padding:0 !important;
+  }
+
+}
+.entry-summary{
+margin-top:14px;
+padding:16px 18px;
+background:#f8fafc;
+border:1px solid #e5e7eb;
+border-radius:12px;
+}
+
+.summary-title{
+font-weight:700;
+font-size:13px;
+color:#64748b;
+margin-bottom:10px;
+letter-spacing:.3px;
+}
+
+.summary-row{
+display:flex;
+justify-content:space-between;
+padding:6px 0;
+font-size:14px;
+}
+
+.summary-row span:first-child{
+color:#475569;
+}
+
+.summary-divider{
+border-top:1px dashed #cbd5e1;
+margin:8px 0;
+}
+
+.summary-row.total{
+font-weight:700;
+font-size:16px;
+padding-top:6px;
+}
+
+.pos{
+color:#16a34a;
+font-weight:600;
+}
+
+.neg{
+color:#dc2626;
+font-weight:600;
+}
+.duyen-cards{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin:12px 0;
+}
+
+.duyen-card{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:10px;
+padding:12px;
+}
+
+.duyen-card strong{
+font-size:18px;
+}
+.duyen-grid{
+display:grid;
+grid-template-columns:repeat(5,1fr);
+gap:12px;
+margin-top:10px;
+}
+
+.duyen-card{
+background:white;
+padding:14px;
+border-radius:10px;
+box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+
+.duyen-card.big{
+grid-column:span 2;
+}
+
+.duyen-label{
+font-size:12px;
+opacity:.6;
+}
+
+.duyen-value{
+font-size:20px;
+font-weight:700;
+margin-top:4px;
+}
+
+.duyen-value.red{color:#d92d20}
+.duyen-value.green{color:#16a34a}
+.duyen-value.orange{color:#f59e0b}
+.duyen-grid{
+display:grid;
+grid-template-columns: repeat(5,1fr);
+gap:12px;
+margin-top:16px;
+}
+
+.duyen-item{
+background:white;
+padding:14px;
+border-radius:12px;
+box-shadow:0 4px 12px rgba(0,0,0,.05);
+}
+
+.duyen-title{
+font-size:12px;
+color:#6b7280;
+margin-bottom:4px;
+}
+
+.duyen-value{
+font-size:20px;
+font-weight:700;
+}
+
+.duyen-item.thu .duyen-value{
+color:#2563eb;
+}
+
+.duyen-item.chi .duyen-value{
+color:#dc2626;
+}
+
+.duyen-item.thue .duyen-value{
+color:#ea580c;
+}
+
+.duyen-item.reserve .duyen-value{
+color:#d97706;
+}
+
+.duyen-item.profit{
+grid-column: span 2;
+background:#f0fdf4;
+}
+
+.duyen-item.profit .duyen-value{
+color:#16a34a;
+font-size:22px;
+}
+/* ===============================
+   TAB 4 - QUỸ DUYÊN UI CLEAN
+================================*/
+
+.duyen-wrapper{
+margin-top:16px;
+}
+
+.duyen-toolbar{
+display:flex;
+gap:10px;
+margin-bottom:14px;
+flex-wrap:wrap;
+}
+
+.duyen-toolbar input,
+.duyen-toolbar select{
+padding:8px 10px;
+border-radius:8px;
+border:1px solid #e5e7eb;
+background:white;
+}
+
+.duyen-row{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-bottom:12px;
+}
+
+.duyen-card{
+background:white;
+padding:16px;
+border-radius:14px;
+border:1px solid #e5e7eb;
+box-shadow:0 6px 14px rgba(0,0,0,.04);
+transition:0.15s ease;
+}
+
+.duyen-card:hover{
+transform:translateY(-1px);
+}
+
+.duyen-label{
+font-size:12px;
+color:#64748b;
+margin-bottom:6px;
+font-weight:600;
+}
+
+.duyen-value{
+font-size:20px;
+font-weight:700;
+letter-spacing:.3px;
+}
+
+/* màu */
+
+.duyen-card.thu .duyen-value{
+color:#2563eb;
+}
+
+.duyen-card.chi .duyen-value{
+color:#dc2626;
+}
+
+.duyen-card.thue .duyen-value{
+color:#ea580c;
+}
+
+.duyen-card.reserve .duyen-value{
+color:#d97706;
+}
+
+/* card lớn */
+
+.duyen-profit{
+background:linear-gradient(135deg,#ecfdf5,#f0fdf4);
+border:1px solid #bbf7d0;
+border-radius:16px;
+padding:20px;
+text-align:center;
+margin-top:6px;
+}
+
+.duyen-profit-label{
+font-size:13px;
+color:#166534;
+margin-bottom:6px;
+font-weight:600;
+}
+
+.duyen-profit-value{
+font-size:28px;
+font-weight:800;
+color:#16a34a;
+}
+
+/* responsive */
+
+@media (max-width:1200px){
+.duyen-row{
+grid-template-columns:repeat(2,1fr);
+}
+}
+
+@media (max-width:600px){
+.duyen-row{
+grid-template-columns:1fr;
+}
+}
+.duyen-grid{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:12px;
+margin-top:14px;
+}
+
+.duyen-box{
+background:#fff;
+border:1px solid #e5e7eb;
+border-radius:12px;
+padding:16px;
+}
+
+.duyen-title{
+font-size:12px;
+color:#64748b;
+margin-bottom:4px;
+}
+
+.duyen-num{
+font-size:20px;
+font-weight:700;
+}
+
+.duyen-box.thu .duyen-num{color:#2563eb}
+.duyen-box.chi .duyen-num{color:#dc2626}
+.duyen-box.tax .duyen-num{color:#ea580c}
+.duyen-box.reserve .duyen-num{color:#d97706}
+
+.duyen-profit{
+margin-top:12px;
+background:#ecfdf5;
+border:1px solid #bbf7d0;
+border-radius:14px;
+padding:18px;
+text-align:center;
+}
+
+.duyen-profit-label{
+font-size:13px;
+color:#166534;
+}
+
+.duyen-profit-num{
+font-size:26px;
+font-weight:800;
+color:#16a34a;
+}

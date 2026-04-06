@@ -1,0 +1,76 @@
+<section id="tab-duyen" class="tab">
+<div class="card">
+
+<div class="duyen-header">
+
+<select id="duyenPeriodType">
+<option value="month">Tháng</option>
+<option value="quarter">Quý</option>
+<option value="year">Năm</option>
+<option value="all">Tổng</option>
+</select>
+
+<input type="month" id="duyenPeriodValue"/>
+
+</div>
+
+<div class="duyen-cards">
+
+<div class="duyen-card">
+<div>Lợi nhuận sau thuế</div>
+<strong id="duyenProfit">0</strong>
+</div>
+
+<div class="duyen-card">
+<div>Dự phòng</div>
+<strong id="duyenReserve">0</strong>
+</div>
+
+<div class="duyen-card">
+<div>Cổ tức Duyên 10%</div>
+<strong id="duyenDividend">0</strong>
+</div>
+
+<div class="duyen-card">
+<div>Còn phải trả</div>
+<strong id="duyenRemain">0</strong>
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="duyen-config">
+
+<select id="duyenReserveMode">
+<option value="percent">Dự phòng %</option>
+<option value="fixed">Dự phòng tiền</option>
+</select>
+
+<input id="duyenReserveValue" placeholder="10"/>
+
+</div>
+
+</div>
+
+<div class="card">
+
+<div class="card-title">Quỹ tiền mặt Duyên</div>
+
+<table class="table">
+<thead>
+<tr>
+<th>Ngày</th>
+<th>Diễn giải</th>
+<th>Số tiền</th>
+</tr>
+</thead>
+
+<tbody id="duyenWallet"></tbody>
+
+</table>
+
+</div>
+
+</div>
+</section>
