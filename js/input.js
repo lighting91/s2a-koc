@@ -40,6 +40,7 @@ function deleteRecord(id){
 
   renderAll();
   renderEntrySummary();
+  renderDuyen(); // thêm
 }
 
 function clearInputs(keepDate=true){
