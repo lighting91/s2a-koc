@@ -25,6 +25,7 @@ function addRecord(){
   saveState(records);
 
   renderAll();
+  syncPush();
   renderEntrySummary();
 
   clearInputs(false);
