@@ -3,18 +3,15 @@ const API_URL = "https://script.google.com/macros/s/AKfycbzxdCOU8VsvW7M4oL45Byhy
 async function syncPush(){
 try{
 
+const form = new FormData();
+form.append("data", JSON.stringify(records));
+
 await fetch(API_URL,{
 method:"POST",
-mode:"no-cors",
-headers:{
-"Content-Type":"application/json"
-},
-body:JSON.stringify({
-records:records
-})
+body:form
 });
 
-console.log("Đã lưu Google Sheet");
+console.log("sync push ok");
 
 }catch(e){
 alert("Lỗi sync push");
