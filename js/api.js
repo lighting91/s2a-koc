@@ -37,6 +37,7 @@ records = data.records || [];
 
 saveState(records);
 renderAll();
+syncPull();
 
 alert("Đã tải dữ liệu");
 
