@@ -1,4 +1,4 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbzxdCOU8VsvW7M4oL45Byhy2eHiMsos0sWQAfvMfvY/exec";
+const API_URL = "https://script.google.com/macros/s/AKfycbzxdCOU8VsvW7M4oL45Byhy2eHiMsos0sWQAfvMfvY/dev";
 
 async function syncPush(){
 try{
