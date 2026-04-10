@@ -1,3 +1,43 @@
+function showLogin(){
+document.getElementById("loginRoot").style.display="flex";
+document.getElementById("appRoot").style.display="none";
+}
+
+function showApp(){
+document.getElementById("loginRoot").style.display="none";
+document.getElementById("appRoot").style.display="block";
+}
+
+function checkAuth(){
+const auth = localStorage.getItem("auth");
+
+if(!auth){
+showLogin();
+}else{
+showApp();
+}
+}
+
+function login(){
+
+const user = document.getElementById("loginUser").value;
+const pass = document.getElementById("loginPass").value;
+
+if(user==="admin" && pass==="123456"){
+localStorage.setItem("auth","ok");
+showApp();
+return;
+}
+
+alert("Sai tài khoản");
+}
+
+function logout(){
+localStorage.removeItem("auth");
+location.reload();
+}
+
+document.addEventListener("DOMContentLoaded",checkAuth);
 function buildPeriodOptions(){
   const elSelect = document.getElementById('inHKDPeriod');
   if(!elSelect) return;
