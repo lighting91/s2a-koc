@@ -22,12 +22,13 @@ function addRecord(){
   });
 
   records.push(rec);
-  saveState(records);
+saveState(records);
 
-  renderAll();
-  renderEntrySummary();
+renderAll();
+renderEntrySummary();
+renderDuyen(); // thêm dòng này
 
-  clearInputs(false);
+clearInputs(false);
 }
 
 function deleteRecord(id){
@@ -39,6 +40,7 @@ function deleteRecord(id){
 
   renderAll();
   renderEntrySummary();
+  renderDuyen(); // thêm
 }
 
 function clearInputs(keepDate=true){
