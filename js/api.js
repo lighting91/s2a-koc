@@ -1,12 +1,11 @@
-const API_URL = "https://script.google.com/macros/s/AKfycbzxdCOU8VsvW7M4oL45Byhy2eHiMsos0sWQAfvMfvY/dev";
-
+const API_URL = "https://script.google.com/macros/s/AKfycbzxdCOU8VsvW7M4oL45Byhy2eHiMsos0sWQAfvMfvY/exec";
 
 async function syncPush(){
-
 try{
 
-const res = await fetch(API_URL,{
+await fetch(API_URL,{
 method:"POST",
+mode:"no-cors",
 headers:{
 "Content-Type":"application/json"
 },
@@ -15,13 +14,12 @@ records:records
 })
 });
 
-alert("Đã lưu Google Sheet");
+console.log("Đã lưu Google Sheet");
 
 }catch(e){
 alert("Lỗi sync push");
 console.error(e);
 }
-
 }
 
 
@@ -37,9 +35,6 @@ records = data.records || [];
 
 saveState(records);
 renderAll();
-syncPull();
-
-alert("Đã tải dữ liệu");
 
 }catch(e){
 alert("Lỗi sync pull");
